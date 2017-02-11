@@ -1,27 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <select class="chooseCat">
-                        <option value="" name="cat">Selectionner une catégorie</select>
-                    </select>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <button type="submit" class="btn btn-default">Se connecter</button>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <div class="container-fluid">
         <div class="row">
             <div class="container">
@@ -141,8 +120,7 @@
 
 {% block stylesheets %}
 <style>
-    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
-    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+/*    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
     h1 { font-size: 36px; }
     h2 { font-size: 21px; margin-bottom: 1em; }
     p { margin: 0 0 1em 0; }
@@ -165,5 +143,6 @@
         @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
         .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
     }
+*/
 </style>
 {% endblock %}
