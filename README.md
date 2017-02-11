@@ -1,3 +1,27 @@
+## Installer un répo qu'on a récupéré sur GitHub :
+
+* `git clone https://github.com/Bunkermaster/exosymfony.git`
+* `composer install`
+	- Port : 8889 (dépend de ce qu’on a mis dans MAMP)
+	- database password : root
+
+`php bin/symfony_requirements` => Tester si Symfony est bien installé
+(Pas oublier d'allumer MAMP)
+
+* `sf doctrine:database:create`
+* `sf doctrine:schema:update --dump-sql`
+* `sf doctrine:schema:update —force`
+* `sf server:run`
+
+
+* `sf debug:container` => Liste tout les services
+* `sf debug:container | grep account` => Liste les services contenant « account » 
+* `sf debug:container app.service.accounting_service` => Toutes les infos sur ce service
+
+
+
+
+
 Symfony Standard Edition
 ========================
 
