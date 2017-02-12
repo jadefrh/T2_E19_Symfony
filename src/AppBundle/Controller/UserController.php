@@ -10,15 +10,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 /**
  * login controller.
  *
- * @Route("login")
+ * @Route("signin")
  */
 class UserController extends Controller
 {
     /**
      * Lists all chevalier entities.
      *
-     * @Route("/", name="login_index")
-     * @Method("GET")
+     * @Route("/", name="signin")
+     * @Method("GET|POST")
      */
     public function indexAction()
     {
