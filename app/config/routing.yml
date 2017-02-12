@@ -2,6 +2,7 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+<<<<<<< HEAD
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
     prefix: /profile
@@ -24,4 +25,15 @@ fos_user_security:
 
 login:
     path: /login
+
+homepage:
+  url:   /
+  param: { module: default, action: index }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
 
