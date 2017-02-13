@@ -30,6 +30,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         {#<a href="{{ path('fos_user_security_login') }}" class="btn btn-default">Se connecter</a>#}
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <div> {{ app.user.username }} </div>
                             <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                         {% else %}
                             {{ render(url("fos_user_security_login")) }}
