@@ -18,15 +18,13 @@ class TVShowController extends Controller
 {
 
     /**
-     * @Route("/show/{id}")
+     * @Route("/show/{name}")
      */
     public function showAction(TVShow $show)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $shows = $em->getRepository('AppBundle:TVShow')->findAll();
         return $this->render('AppBundle:TVShow:show.html.twig', array(
             'show' => $show,
+            'showName' => $show->getName(),
         ));
     }
 
