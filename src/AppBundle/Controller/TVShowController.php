@@ -24,7 +24,6 @@ class TVShowController extends Controller
     {
         return $this->render('AppBundle:TVShow:show.html.twig', array(
             'show' => $show,
-            'showName' => $show->getName(),
         ));
     }
 

@@ -10,14 +10,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 /**
  * login controller.
  *
- * @Route("signin")
+ * @Route("login")
  */
 class UserController extends Controller
 {
     /**
      * Lists all chevalier entities.
      *
-     * @Route("/", name="signin")
+     * @Route("/", name="login")
      * @Method("GET|POST")
      */
     public function indexAction()
@@ -26,7 +26,7 @@ class UserController extends Controller
 
         $users = $em->getRepository('AppBundle:User')->findAll();
 
-        return $this->render('user/index.html.twig', array(
+        return $this->render('/FOSUSerBundle/login.html.twig', array(
             'users' => $users,
         ));
     }

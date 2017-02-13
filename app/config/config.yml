@@ -77,6 +77,10 @@ fos_user:
             address: jadefrh@gmail.com
             sender_name: Jade
 
+twig:
+    globals:
+        fos_csrf_provider: "@security.csrf.token_manager"
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
