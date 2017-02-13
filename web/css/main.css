@@ -81,6 +81,9 @@ footer{
     background:#eee;
     height:200px;
 }
+.fa{
+    color: #000;
+}
 .socialLink{
     text-align: left;
 }
