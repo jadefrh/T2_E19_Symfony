@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new Codingfogey\Bundle\FontAwesomeBundle\CodingfogeyFontAwesomeBundle()
+//            new Codingfogey\Bundle\FontAwesomeBundle\CodingfogeyFontAwesomeBundle()
 
         ];
 

@@ -33,10 +33,11 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <div> {{ app.user.username }} </div>
+                            <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a>
                             <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                         {% else %}
                             <a href="{{ path('fos_user_security_login') }}" class="btn btn-default">Se connecter</a>
+                            <a href="{{ path('fos_user_registration_register') }}" class="btn btn-default">S'inscrire</a>
                         {% endif %}
                     </ul>
                 </div>
