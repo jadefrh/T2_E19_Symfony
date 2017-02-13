@@ -8,12 +8,12 @@ imports:
 parameters:
     locale: en
 
-codingfogey_font_awesome:
-    assets_dir: "%kernel.root_dir%/../vendor/fortawesome/font-awesome"
-    filter: less
-    customize:
-        variables_file:         "%kernel.root_dir%/Resources/fontawesome/variables.less"
-        font_awesome_output:    "%kernel.root_dir%/Resources/less/fontawesome.less"
+#codingfogey_font_awesome:
+#    assets_dir: "%kernel.root_dir%/../vendor/fortawesome/font-awesome"
+#    filter: less
+#    customize:
+#        variables_file:         "%kernel.root_dir%/Resources/fontawesome/variables.less"
+#        font_awesome_output:    "%kernel.root_dir%/Resources/less/fontawesome.less"
 
 framework:
     #esi:             ~
