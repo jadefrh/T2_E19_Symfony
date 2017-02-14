@@ -12,6 +12,12 @@ p{
 form{
   margin-bottom: 100px;
 }
+h4{
+  color:#333;
+}
+a{
+  color:#337ab7;
+}
 .clear{
     display: block;
     clear:both;
@@ -58,15 +64,29 @@ nav .chooseCat{
     background:#eee;
 }
 .searchByCatTab{
-    height:100px;
-    border:1px solid #eee;
+  height:140px;
+  background: white;
+  border:1px solid #eee;
+}
+.searchInput{
+  margin: 20px;
+  margin-left:0;
+  width: 100%;
+  border:1px solid#eee;
+  padding:5px;
 }
 .contentTabs{
-    margin: 10px;
+  margin: 10px;
 }
 .adRightNextToCatTab{
-    background: #eee;
-    height: 100px;
+  background: #eee;
+  height: 140px;
+}
+.nav-tabs{
+  padding-top: 20px;
+}
+.nav-tabs > li > a{
+  color:#333;
 }
 /* TOP SHOW */
 .topShows{
@@ -82,9 +102,11 @@ nav .chooseCat{
     display: inline-block;
     text-transform: uppercase;
     padding-left: 0;
+    color:#333;
 }
 .viewCatLink{
     text-align: right;
+    color:#333;
 }
 .videoSingleShow{
     background: lightblue;
