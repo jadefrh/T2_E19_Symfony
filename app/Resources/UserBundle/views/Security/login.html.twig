@@ -1,5 +1,6 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends 'base.html.twig' %}
 
+{% block body %}
 {% block fos_user_content %}
     {% if error %}
         <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
@@ -38,3 +39,5 @@
 
 
 {% endblock fos_user_content %}
+
+{% endblock %}
