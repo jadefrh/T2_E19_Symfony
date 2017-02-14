@@ -6,16 +6,36 @@ body,html{
     background-size: cover;
     background-position: top;
 }
+p{
+  color:black;
+}
+form{
+  margin-bottom: 100px;
+}
 .clear{
     display: block;
     clear:both;
     height:30px;
+}
+.no-padding{
+  padding: 0 !important;
+}
+.littleMarginTop{
+  margin-top: 20px;
 }
 .padding-left{
     padding-left: 15px !important;
 }
 .noPaddingLeft{
     padding-left:0;
+}
+h1{
+  color:#333;
+}
+input{
+  width: 100%;
+  border:1px solid#eee;
+  border-radius: 3px;
 }
 /* NAV */
 nav{
@@ -27,6 +47,7 @@ nav .chooseCat{
     border:1px solid #333;
     border-radius:3px;
     height: 35px;
+    color:#333;
 }
 .logoNav{
     width: 50px;
@@ -80,6 +101,7 @@ nav .chooseCat{
 footer{
     background:#eee;
     height:200px;
+    clear:both;
 }
 .fa{
     color: #000;
@@ -160,4 +182,9 @@ footer{
 .logo{
     width: 10%;
     height:auto;
+}
+
+/* LOGIN PAGE */
+.rememberMe{
+  display: inline-block;
 }

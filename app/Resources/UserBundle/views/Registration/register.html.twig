@@ -4,11 +4,13 @@
     {% block fos_user_content %}
         {% trans_default_domain 'FOSUserBundle' %}
 
-
-            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+            <div class="col-xs-12 text-center">
+              <h1>S'inscrire</h1>
+            </div>
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register col-md-6 col-md-offset-3'}}) }}
             {{ form_widget(form) }}
-            <div>
-                <input type="submit" value="{{ 'Confirmerrrr'|trans }}" />
+            <div class="col-xs-12 no-padding littleMarginTop">
+                <input type="submit" value="{{ 'Confirmer'|trans }}" />
             </div>
             {{ form_end(form) }}
 
