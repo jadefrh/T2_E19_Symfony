@@ -1,0 +1,15 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+    {% if error %}
+        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+    {% endif %}
+
+    {% block title %}Demo Login{% endblock %}
+
+    {% block content %}
+        {% block fos_user_content %}{% endblock %}
+    {% endblock %}
+
+
+{% endblock fos_user_content %}
