@@ -3,22 +3,9 @@
 <head>
     <meta charset="UTF-8" />
 
-
-    {% stylesheets
-    '@UserBundle/Resources/public/css/*'
-    filter='cssrewrite'
-    %}
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
-    {% endstylesheets %}
-
-    {%javascripts
-    '@UserBundle/Resources/public/js/*'
-    %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-
 </head>
 <body>
+hi
 {% block content %}
 {% endblock content %}
 </body>
