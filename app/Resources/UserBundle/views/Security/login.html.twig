@@ -8,9 +8,7 @@
 
     {% block title %}
     {% endblock %}
-    <div class="col-xs-12 text-center">
-      <h1>Se connecter</h1>
-    </div>
+
     {% block content %}
 
         {% trans_default_domain 'FOSUserBundle' %}
@@ -19,21 +17,22 @@
             <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
-        <form action="{{ path("fos_user_security_check") }}" class="col-md-6 col-md-offset-3 " method="post">
+        <form action="{{ path("fos_user_security_check") }}" class="col-md-6 col-md-offset-3 loginForm" method="post">
+        <h1 class="text-left loginTitle">Se connecter</h1>
             {% if csrf_token %}
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
             {% endif %}
 
-            <p for="username">Pseudo</p>
-            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+            <input placeholder="Identifiant" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+            <input placeholder="Mot de passe" type="password" id="password" name="_password" required="required" />
 
-            <p for="password">Mot de passe</p>
-            <input type="password" id="password" name="_password" required="required" />
+            <p class="rememberMe">
+              <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+              <span>Se souvenir de moi</span>
+            </p>
 
-            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-            <p for="remember_me">Se souvenir de moi</p>
-
-            <input type="submit" id="_submit" name="_submit" value="Connexion" />
+            <input class="btn-default loginBtn" type="submit" id="_submit" name="_submit" value="Se connecter" />
+            <a class="notRegisteredYet" href="register">Pas de compte ? S'inscrire ici</a>
         </form>
 
     {% endblock %}

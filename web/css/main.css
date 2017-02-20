@@ -18,6 +18,11 @@ h4{
 a{
   color:#337ab7;
 }
+.backgroundProperty{
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
 .clear{
     display: block;
     clear:both;
@@ -43,17 +48,27 @@ input{
   border:1px solid#eee;
   border-radius: 3px;
 }
+.btn-default{
+  background-color: #C83D31;
+  border-radius: 0;
+}
+.btn-default:hover{
+  background-color: #333;
+  transition:all .2s ease-in-out;
+  color:white;
+}
 /* NAV */
 nav{
-    background:#eee;
-    line-height: 50px;
+  background:#eee !important;
+  line-height: 50px;
 }
 nav .chooseCat{
-    padding:10px;
-    border:1px solid #333;
-    border-radius:3px;
-    height: 35px;
-    color:#333;
+  padding:10px;
+  border:none;
+  height: 35px;
+  color:white;
+  background:#C83D31;
+  outline:none;
 }
 .logoNav{
     width: 50px;
@@ -61,11 +76,11 @@ nav .chooseCat{
 /* HOME HEADER */
 .homeHeader{
     height:200px;
-    background:#eee;
+    background:url('../img/pub/header.gif');
 }
 .searchByCatTab{
   height:140px;
-  background: white;
+  background: #C83D31;
   border:1px solid #eee;
 }
 .searchInput{
@@ -79,13 +94,25 @@ nav .chooseCat{
   margin: 10px;
 }
 .adRightNextToCatTab{
-  background: #eee;
+  background:url('../img/pub/1.gif');
   height: 140px;
 }
 .nav-tabs{
   padding-top: 20px;
 }
 .nav-tabs > li > a{
+  color:white;
+}
+.nav-tabs > li.active > a{
+  background:#eee;
+  color:#333;
+}
+.nav-tabs > li > a:hover{
+  background:white;
+  color:#333;
+}
+.nav-tabs > li.active > a:hover{
+  background:white;
   color:#333;
 }
 /* TOP SHOW */
@@ -99,14 +126,20 @@ nav .chooseCat{
 }
 .titleSingleShow{
     margin-top: 0;
+    font-size: 22px;
     display: inline-block;
     text-transform: uppercase;
     padding-left: 0;
-    color:#333;
+    color:#C83D31;
+}
+.dividerUnderTitle{
+  display: block;
+  height: 3px;
+  background-color: #C83D31;
 }
 .viewCatLink{
     text-align: right;
-    color:#333;
+    color:#C83D31;
 }
 .videoSingleShow{
     background: lightblue;
@@ -121,9 +154,13 @@ nav .chooseCat{
 }
 /* FOOTER */
 footer{
-    background:#eee;
+    background:#666666;
     height:200px;
     clear:both;
+    padding-top: 30px;
+}
+footer a{
+  color:white;
 }
 .fa{
     color: #000;
@@ -207,6 +244,44 @@ footer{
 }
 
 /* LOGIN PAGE */
+.loginForm{
+  background: #eee;
+  padding: 20px;
+  margin-top:50px;
+}
 .rememberMe{
+  margin-top: 20px;
+}
+#remember_me{
   display: inline-block;
+  width: auto;
+}
+.loginTitle{
+  padding:20px;
+  padding-top: 0;
+  padding-left: 0;
+  font-size: 18px;
+}
+.loginBtn{
+  display: block;
+  margin:auto;
+  width:200px;
+  padding:10px;
+}
+form input{
+  margin-top:10px;
+  padding: 10px;
+}
+.notRegisteredYet{
+  font-style: italic;
+  color:#333;
+  text-align: center;
+  display: block;
+  margin-top:20px;
+}
+/* REGISTER PAGE */
+.fos_user_registration_register{
+  background: #eee;
+  padding: 20px;
+  margin-top:50px;
 }
