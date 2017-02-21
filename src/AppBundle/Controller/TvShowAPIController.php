@@ -13,15 +13,33 @@ use AppBundle\Entity\TvShowAPI;
 class TvShowAPIController extends Controller
 {
     /**
-     * @Route("/TvShowAPI", name="tvshow_list")
+     * @Route("/TvShowAPI/{TvShowAPI_id}", name="tvshow_one")
      * @Method({"GET"})
      */
     public function getTvShowAPIAction(Request $request)
     {
-        return new JsonResponse([
-            new TvShowAPI("Tour Eiffel", "5 Avenue Anatole France, 75007 Paris"),
-            new TvShowAPI("Mont-Saint-Michel", "50170 Le Mont-Saint-Michel"),
-            new TvShowAPI("Château de Versailles", "Place d'Armes, 78000 Versailles"),
-        ]);
+        $shows = $this->get('doctrine.orm.entity_manager')
+            ->getRepository('AppBundle:TvShowAPI')
+            ->find($request->get('TvShowAPI_id'));
+        /* @var $shows TvShowAPI[] */
+
+        if (empty($show)) {
+            return new JsonResponse(['message' => 'Show not found'], Response::HTTP_NOT_FOUND);
+        }
+
+        $formatted = [];
+        foreach ($shows as $show) {
+            $formatted[] = [
+                'id' => $show->getId(),
+                'title' => $show->getTitle(),
+                'host' => $show->getHost(),
+                'theme' => $show->getTheme(),
+                'time' => $show->getTime(),
+                'channel' => $show->getChannel(),
+                'description' => $show->getDescription(),
+            ];
+        }
+
+        return new JsonResponse($formatted);
     }
 }
