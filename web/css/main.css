@@ -157,6 +157,7 @@ footer{
     background:#666666;
     height:200px;
     clear:both;
+    margin-top: 50px;
     padding-top: 30px;
 }
 footer a{
@@ -284,4 +285,21 @@ form input{
   background: #eee;
   padding: 20px;
   margin-top:50px;
+}
+/* PROFILE PAGE */
+.userInfo{
+  background: #EEE;
+  padding:15px;
+}
+.userReactions{
+  background: #EEE;
+  padding:15px;
+}
+.commentedShows h3{
+  color:#333;
+  margin-top: 0;
+}
+.likedShows h3{
+  color:#333;
+  margin-top: 0;
 }

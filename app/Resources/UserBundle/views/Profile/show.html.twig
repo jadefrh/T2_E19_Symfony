@@ -2,13 +2,22 @@
 
 {% block body %}
     {% block fos_user_content %}
-    <div class="fos_user_user_show">
-        <p><span>{{ 'Nom d\'utilisateur'|trans }} :</span> {{ user.username }}</p>
-        <p><span>{{ 'Email'|trans }} : </span>{{ user.email }}</p>
-
-        <div id="commentedShows">
-            <h2>Émissions commentées</h2>
+    <div class="container">
+      <div class="col-xs-12 userInfo">
+        <p><strong>{{ 'Nom d\'utilisateur'|trans }} :</strong> {{ user.username }}</p>
+        <p><strong>{{ 'Email'|trans }} : </strong>{{ user.email }}</p>
+        <p><strong>Dernière connexion : </strong>{{ app.user.lastLogin|date('d-m-Y H:i') }}</p>
+        <p><strong><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></strong></p>
+      </div>
+      <div class="clear"></div>
+      <div class="userReactions col-xs-12">
+        <div class="col-xs-12 commentedShows">
+            <h3>Émissions commentées</h3>
         </div>
+        <div class="col-xs-12 likedShows">
+            <h3>Émissions aimées</h3>
+        </div>
+      </div>
     </div>
     {% endblock fos_user_content %}
 {% endblock %}
