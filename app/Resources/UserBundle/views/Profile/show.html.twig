@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block fos_user_content %}
+    <div class="fos_user_user_show">
+        <p><span>{{ 'Nom d\'utilisateur'|trans }} :</span> {{ user.username }}</p>
+        <p><span>{{ 'Email'|trans }} : </span>{{ user.email }}</p>
+
+        <div id="commentedShows">
+            <h2>Émissions commentées</h2>
+        </div>
+    </div>
+    {% endblock fos_user_content %}
+{% endblock %}
