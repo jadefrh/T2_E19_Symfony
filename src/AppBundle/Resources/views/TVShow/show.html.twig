@@ -3,18 +3,25 @@
 {% block title %}AppBundle:TVShow:show{% endblock %}
 
 {% block body %}
-<h1>{{ show.name }}</h1>
-<p>{{ show.description }}</p>
-    {{ form_start(formWTF) }}
-    {{ form_widget(formWTF.type, {value : 'wtf'}) }}
-    {{ form_widget(formWTF.save) }}
-    {{ form_end(formWTF) }}
+  <div class="container singleShowPage">
+    <h1>{{ show.name }}</h1>
+    <p>{{ show.description }}</p>
+    <video class="col-xs-12 src=""></video>
+    <p> Réagir à ce show : </p>
+        {{ form_start(formWTF) }}
+        {{ form_widget(formWTF.type, {value : 'wtf'}) }}
+        {{ form_widget(formWTF.save) }}
+        {{ form_end(formWTF) }}
 
-    {{ form_start(formLike) }}
-    {{ form_widget(formLike.type, {value : 'fav'}) }}
-    {{ form_widget(formLike.save) }}
-    {{ form_end(formLike) }}
-
-    <p>WTF: {{ countWtf }}</p>
-    <p>FAV: {{ countFav }}</p>
+        {{ form_start(formLike) }}
+        {{ form_widget(formLike.type, {value : 'fav'}) }}
+        {{ form_widget(formLike.save) }}
+        {{ form_end(formLike) }}
+        <div class="pull-right">
+        <p>
+          WTF: {{ countWtf }} /
+          J'aime: {{ countFav }}
+        </p>
+        </div>
+  </div>
 {% endblock %}

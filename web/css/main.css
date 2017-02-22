@@ -303,3 +303,19 @@ form input{
   color:#333;
   margin-top: 0;
 }
+/* SINGLE SHOW PAGE */
+.singleShowPage form{
+  margin-bottom: 0;
+  display: inline-block;
+}
+.singleShowPage video{
+  height: 300px;
+  background:black;
+  margin-bottom: 10px;
+}
+.singleShowPage #form_save{
+  background:none;
+  border:1px solid #C83D31;
+  color:#C83D31;
+  border-radius:3px;
+}
