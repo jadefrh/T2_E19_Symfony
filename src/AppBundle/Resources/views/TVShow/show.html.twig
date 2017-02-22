@@ -5,4 +5,13 @@
 {% block body %}
 <h1>{{ show.name }}</h1>
 <p>{{ show.description }}</p>
+    {{ form_start(formWTF) }}
+    {{ form_widget(formWTF) }}
+    {{ form_end(formWTF) }}
+
+    {{ form_start(formLike) }}
+    {{ form_widget(formLike) }}
+    {{ form_end(formLike) }}
+    <p>{{ countFav }}</p>
+    <p>{{ countWtf }}</p>
 {% endblock %}
