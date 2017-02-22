@@ -17,6 +17,8 @@ parameters:
 #        font_awesome_output:    "%kernel.root_dir%/Resources/less/fontawesome.less"
 
 framework:
+    serializer:
+        enabled: true
     #esi:             ~
     #translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"

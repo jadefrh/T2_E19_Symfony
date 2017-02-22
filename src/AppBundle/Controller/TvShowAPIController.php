@@ -5,38 +5,41 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 use AppBundle\Entity\TvShowAPI;
 
 class TvShowAPIController extends Controller
 {
     /**
-     * @Route("/TvShowAPI/{TvShowAPI_id}", name="tvshow_one")
+     * @Route("/TvShowAPIs", name="TvShowAPIs_list")
      * @Method({"GET"})
      */
-    public function getTvShowAPIAction(Request $request)
+    public function getTvShowAPIsAction(Request $request)
     {
-        $shows = $this->get('doctrine.orm.entity_manager')
+        $TvShowAPIs = $this->get('doctrine.orm.entity_manager')
             ->getRepository('AppBundle:TvShowAPI')
-            ->find($request->get('TvShowAPI_id'));
-        /* @var $shows TvShowAPI[] */
+            /*->find($request->get('TvShowAPI_id')); */
+            ->findAll();
+        /* @var $TvShowAPIs TvShowAPI[] */
 
-        if (empty($show)) {
+        if (empty($TvShowAPI)) {
             return new JsonResponse(['message' => 'Show not found'], Response::HTTP_NOT_FOUND);
         }
 
         $formatted = [];
-        foreach ($shows as $show) {
+        foreach ($TvShowAPIs as $TvShowAPI) {
             $formatted[] = [
-                'id' => $show->getId(),
-                'title' => $show->getTitle(),
-                'host' => $show->getHost(),
-                'theme' => $show->getTheme(),
-                'time' => $show->getTime(),
-                'channel' => $show->getChannel(),
-                'description' => $show->getDescription(),
+                'id' => $TvShowAPI->getId(),
+                'title' => $TvShowAPI->getTitle(),
+                'host' => $TvShowAPI->getHost(),
+                'theme' => $TvShowAPI->getTheme(),
+                'time' => $TvShowAPI->getTime(),
+                'channel' => $TvShowAPI->getChannel(),
+                'description' => $TvShowAPI->getDescription(),
             ];
         }
 
