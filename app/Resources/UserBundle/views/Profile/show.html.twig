@@ -6,7 +6,7 @@
       <div class="col-xs-12 userInfo">
         <p><strong>{{ 'Nom d\'utilisateur'|trans }} :</strong> {{ entity.username }}</p>
         <p><strong>{{ 'Email'|trans }} : </strong>{{ entity.email }}</p>
-        <p><strong>Dernière connexion : </strong>{{ app.user.lastLogin|date('d-m-Y H:i') }}</p>
+        <p><strong>Dernière connexion : </strong>{{entity.lastLogin|date('d-m-Y H:i') }}</p>
         <p><strong><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></strong></p>
       </div>
       <div class="clear"></div>
@@ -16,6 +16,25 @@
         </div>
         <div class="col-xs-12 likedShows">
             <h3>Émissions aimées</h3>
+            {% for likedShow in likedShows %}
+              <div class="col-md-3 col-sm-6 col-xs-12 noPaddingLeft">
+                <div class="singleShowLikedOnProfile">
+                  <h4>{{likedShow.show.name}}</h4>
+                  <p>{{likedShow.show.description}}</p>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+        <div class="col-xs-12 likedShows">
+            <h3>Émissions ajoutés comme WTF</h3>
+            {% for wtfShow in wtfShows %}
+              <div class="col-md-3 col-sm-6 col-xs-12 noPaddingLeft">
+                <div class="singleShowLikedOnProfile">
+                  <h4>{{wtfShow.show.name}}</h4>
+                  <p>{{wtfShow.show.description}}</p>
+                </div>
+              </div>
+            {% endfor %}
         </div>
       </div>
     </div>
