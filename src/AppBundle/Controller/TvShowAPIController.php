@@ -41,6 +41,7 @@ class TvShowAPIController extends Controller
             ];
         }
 
-        return new JsonResponse($formatted);
+
+        return new JsonResponse(highlight_string("<?php\n\$formatted =\n" . var_export($formatted, true) . ";\n?>"));
     }
 }
