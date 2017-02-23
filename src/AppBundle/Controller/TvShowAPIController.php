@@ -3,14 +3,13 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Entity\TvShowAPI;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
-use AppBundle\Entity\TvShowAPI;
 
 class TvShowAPIController extends Controller
 {
@@ -22,11 +21,10 @@ class TvShowAPIController extends Controller
     {
         $TvShowAPIs = $this->get('doctrine.orm.entity_manager')
             ->getRepository('AppBundle:TvShowAPI')
-            /*->find($request->get('TvShowAPI_id')); */
             ->findAll();
         /* @var $TvShowAPIs TvShowAPI[] */
 
-        if (empty($TvShowAPI)) {
+        if (empty($TvShowAPIs)) {
             return new JsonResponse(['message' => 'Show not found'], Response::HTTP_NOT_FOUND);
         }
 
