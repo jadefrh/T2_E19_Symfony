@@ -44,8 +44,7 @@ class DefaultController extends Controller
           ->orderBy('vote_count', 'DESC');
         $reqLiked->setMaxResults(1);
         $topLiked = $reqLiked->getQuery()->getResult();
-
-
+        
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'showsRecent' => $showsRecent,

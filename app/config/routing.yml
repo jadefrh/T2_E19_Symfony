@@ -26,3 +26,7 @@ fos_user_change_password:
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
     prefix: /
+
+fos_user_profile_show_users:
+    path: /profile/users
+    defaults: { _controller: UserBundle:Users:index }
