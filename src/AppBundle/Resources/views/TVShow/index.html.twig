@@ -5,10 +5,24 @@
 {% block body %}
     <div class="container">
         <h1>Liste des émissions</h1>
-        <ul class="listeEmissions">
+         <div class="col-xs-12 topShows">
             {% for show in shows %}
-            <li>{{ show.name }}</li>
-        </ul>
+            <div class="singleShow">
+                <h3 class="titleSingleShow col-xs-10">La plus récente</h3><span class="viewCatLink col-xs-2">Voir la catégorie</span>
+                <div class="col-xs-12 dividerUnderTitle"></div>
+                <div class="col-md-4 col-xs-12 videoSingleShow">
                 </div>
-    {% endfor %}
+                <div class="col-md-8 col-xs-12 contentSingleShow">
+                    <div class="col-xs-12 textSingleShow">
+                        <h4>{{ show.name }}</h4>
+                        <p>
+                            {{ show.description }}
+                        </p>
+                        <a href="{{ path('app_tvshow_show', {'name' : show.name })  }}">En savoir plus</a>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+                </div>
+                </div>
 {% endblock %}
