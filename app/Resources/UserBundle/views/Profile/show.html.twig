@@ -4,8 +4,8 @@
     {% block fos_user_content %}
     <div class="container">
       <div class="col-xs-12 userInfo">
-        <p><strong>{{ 'Nom d\'utilisateur'|trans }} :</strong> {{ user.username }}</p>
-        <p><strong>{{ 'Email'|trans }} : </strong>{{ user.email }}</p>
+        <p><strong>{{ 'Nom d\'utilisateur'|trans }} :</strong> {{ entity.username }}</p>
+        <p><strong>{{ 'Email'|trans }} : </strong>{{ entity.email }}</p>
         <p><strong>Dernière connexion : </strong>{{ app.user.lastLogin|date('d-m-Y H:i') }}</p>
         <p><strong><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></strong></p>
       </div>
