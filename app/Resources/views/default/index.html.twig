@@ -55,27 +55,23 @@
                         </div>
                     {% endfor %}
                     <div class="clear"></div>
-                    <div class="singleShow">
-                        <h3 class="titleSingleShow col-xs-10">La plus aimée</h3><span class="viewCatLink col-xs-2">Voir la catégorie</span>
-                        <div class="col-xs-4 videoSingleShow">
-                        </div>
-                        <div class="col-xs-8 contentSingleShow">
-                            <div class="col-xs-12 textSingleShow">
-                                <h4>Showdown! Takeshi Castle</h4>
-                                <p>
-                                    Dans une ambiance pseudo militaire,
-                                    le général (animateur) Tani prépare son
-                                    armée de entre 100 et 142 candidats dans
-                                    une série d’epreuves physiques, qui élimine
-                                    rapidement la majorité des candidats, les
-                                    dernier sont envoyé attaquer le chateau
-                                    éponyme sous la forme d’un laserquest,
-                                    les survivants gagnant un prix.
-                                </p>
-                                <a href="#">En savoir plus</a>
+                    {% for liked in topLiked %}
+                        <div class="singleShow">
+                            <h3 class="titleSingleShow col-xs-10">La plus aimée</h3><span class="viewCatLink col-xs-2">Voir la catégorie</span>
+                            <div class="col-xs-12 dividerUnderTitle"></div>
+                            <div class="col-md-4 col-xs-12 videoSingleShow">
+                            </div>
+                            <div class="col-md-8 col-xs-12 contentSingleShow">
+                                <div class="col-xs-12 textSingleShow">
+                                    <h4>{{ liked.name }}</h4>
+                                    <p>
+                                        {{ liked.description }}
+                                    </p>
+                                    <a href="{{ path('app_tvshow_show', {'name' : liked.name })  }}">En savoir plus</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endfor %}
                     <div class="clear"></div>
                     <div class="singleShow">
                         <h3 class="titleSingleShow col-xs-10">La plus commentée</h3><span class="viewCatLink col-xs-2">Voir la catégorie</span>

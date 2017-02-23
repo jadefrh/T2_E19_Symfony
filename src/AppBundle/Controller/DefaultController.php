@@ -32,24 +32,25 @@ class DefaultController extends Controller
           ->groupBy('t_v_show.id')
           ->orderBy('vote_count', 'DESC');
         $qb->setMaxResults(1);
-        $topWtf = $qb->getQuery()->getOneOrNullResult();
+        $topWtf = $qb->getQuery()->getResult();
 
-        //custom query to get the most wtf post
-        $qb = $em->createQueryBuilder()
+        //custom query to get the most liked post
+        $reqLiked = $em->createQueryBuilder()
           ->select("COUNT ( vote.show ) as vote_count, t_v_show.name, t_v_show.description ")
           ->from(' AppBundle:TVShow', 't_v_show')
           ->innerJoin(' AppBundle:Vote', 'vote', 'WITH', 't_v_show.id = vote.show')
-          ->andWhere("vote.type = 'wtf' ")
+          ->andWhere("vote.type = 'fav' ")
           ->groupBy('t_v_show.id')
           ->orderBy('vote_count', 'DESC');
-        $qb->setMaxResults(1);
-        $topWtf = $qb->getQuery()->getResult();
+        $reqLiked->setMaxResults(1);
+        $topLiked = $reqLiked->getQuery()->getResult();
 
 
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'showsRecent' => $showsRecent,
             'topWtf'=> $topWtf,
+            'topLiked' =>$topLiked,
         ]);
     }
 }
