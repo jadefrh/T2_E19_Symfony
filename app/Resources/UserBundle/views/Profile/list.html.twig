@@ -1,7 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% for entity in entities %}
-        {{ entity.username }}
-    {% endfor %}
+    <h1>Dashboard</h1>
+    <div>
+        <h2>Liste des utilisateurs</h2>
+        <ul>
+            {% for entity in entities %}
+                <li>
+                    <div>
+                        <a href="{{ path('fos_user_profile_show_user', {'id': entity.id}) }}">{{ entity.username }}</a>
+                        <p>{{ entity.username }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
 {% endblock %}
