@@ -44,8 +44,20 @@ class ProfileController extends Controller
 
         $entity = $em->getRepository('AppBundle:User')->find($id);
 
+            $user = $this->getUser();
+            if (!is_object($user) || !$user instanceof UserInterface) {
+                throw new AccessDeniedException('This user does not have access to this section.');
+            }
+            $criteria = array("author" => $id, "type" => 'fav');
+            $showLikedByUser = $this->getDoctrine()->getRepository('AppBundle:Vote')->findBy($criteria);
+
+            $criteriaWtf = array("author" => $id, "type" => 'wtf');
+            $showWtfByUser = $this->getDoctrine()->getRepository('AppBundle:Vote')->findBy($criteriaWtf);
+
         return $this->render('@FOSUser/Profile/show.html.twig', array(
             'entity' => $entity,
+            'likedShows'=>$showLikedByUser,
+            'wtfShows' => $showWtfByUser,
         ));
     }
 

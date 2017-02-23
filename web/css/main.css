@@ -303,6 +303,11 @@ form input{
   color:#333;
   margin-top: 0;
 }
+.singleShowLikedOnProfile{
+  padding:10px;
+  background: white;
+  margin-bottom: 20px;
+}
 /* SINGLE SHOW PAGE */
 .singleShowPage form{
   margin-bottom: 0;
