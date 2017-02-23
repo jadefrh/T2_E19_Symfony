@@ -6,7 +6,7 @@
   <div class="container singleShowPage">
     <h1>{{ show.name }}</h1>
     <p>{{ show.description }}</p>
-    <video class="col-xs-12 src=""></video>
+      <video class="col-xs-12 src="{{ show.videoUrl }}"></video>
     <p> Réagir à ce show : </p>
         {{ form_start(formWTF) }}
         {{ form_widget(formWTF.type, {value : 'wtf'}) }}
