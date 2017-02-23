@@ -21,7 +21,14 @@
             <ul>
                 {% for show in shows %}
                     <li>
-                        <a href="{{ path('app_tvshow_show', {'name': show.name}) }}">{{ show.name }}</a>
+                        <div>
+                            <a href="{{ path('app_tvshow_show', {'name': show.name}) }}">{{ show.name }}</a>
+                            {#<p>LIKE : {{ favCount }} </p>#}
+                            {#<p>WTF : {{ wtfCount }}</p>#}
+                        </div>
+
+
+
                     </li>
                 {% endfor %}
             </ul>
