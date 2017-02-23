@@ -92,3 +92,6 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+# app/config/config.yml
+nelmio_api_doc:
+    name: TvShowAPI
