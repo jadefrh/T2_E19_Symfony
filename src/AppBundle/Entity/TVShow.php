@@ -15,6 +15,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TVShowRepository")
  * @Vich\Uploadable
  */
+
+// TVSHOW Infos VOTE
+
 class TVShow
 {
     /**

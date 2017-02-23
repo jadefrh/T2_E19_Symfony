@@ -10,6 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="tv_show_a_p_i")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TvShowAPIRepository")
  */
+
+//API TVSHOW
+
 class TvShowAPI
 {
     /**

@@ -17,6 +17,8 @@ class TvShowAPIController extends Controller
      * @Route("/TvShowAPIs", name="TvShowAPIs_list")
      * @Method({"GET"})
      */
+
+    // Api for TvShow
     public function getTvShowAPIsAction(Request $request)
     {
         $TvShowAPIs = $this->get('doctrine.orm.entity_manager')

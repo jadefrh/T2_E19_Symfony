@@ -10,6 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
+
+// Gestion du USER
+
 class User extends BaseUser
 {
     /**

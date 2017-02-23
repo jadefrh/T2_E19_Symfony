@@ -10,6 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="vote")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\VoteRepository")
  */
+
+// GESTION DES VOTES 
+
 class Vote
 {
     /**
