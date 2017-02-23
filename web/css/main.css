@@ -134,7 +134,8 @@ nav .chooseCat{
 }
 .dividerUnderTitle{
   display: block;
-  height: 3px;
+  height: 2px;
+  margin-bottom: 10px;
   background-color: #C83D31;
 }
 .viewCatLink{
