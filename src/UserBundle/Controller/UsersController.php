@@ -22,9 +22,11 @@ class UsersController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('AppBundle:User')->findAll();
+        $shows = $em->getRepository('AppBundle:TVShow')->findAll();
 
         return $this->render('@FOSUser/Profile/list.html.twig', array(
             'entities' => $entities,
+            'shows' => $shows,
         ));
 
 
