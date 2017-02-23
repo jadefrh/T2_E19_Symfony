@@ -24,8 +24,16 @@
         </p>
         </div>
         <div class="col-xs-12 noPaddingLeft">
+            {{ form_start(formComment) }}
+            {{ form_widget(formComment) }}
+            {{ form_end(formComment) }}
           <p class="littleMarginTop">
             Commentaires :
+              <ul class="commentList">
+              {% for comment in comments %}
+                <li>{{ comment.content }}</li>
+              {% endfor %}
+              </ul>
           </p>
         </div>
   </div>

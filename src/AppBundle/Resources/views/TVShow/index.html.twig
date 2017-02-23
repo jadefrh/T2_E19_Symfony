@@ -3,5 +3,12 @@
 {% block title %}AppBundle:TVShow:index{% endblock %}
 
 {% block body %}
-<h1>Welcome to the TVShow:index page</h1>
+    <div class="container">
+        <h1>Liste des émissions</h1>
+        <ul class="listeEmissions">
+            {% for show in shows %}
+            <li>{{ show.name }}</li>
+        </ul>
+                </div>
+    {% endfor %}
 {% endblock %}

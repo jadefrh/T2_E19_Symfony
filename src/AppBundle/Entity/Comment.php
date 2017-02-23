@@ -35,6 +35,13 @@ class Comment
      */
     private $content;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="show_id", type="integer")
+     */
+    private $showId;
+
 
     /**
      * Get id
@@ -93,5 +100,31 @@ class Comment
     {
         return $this->content;
     }
+
+
+    /**
+     * Set setShowId
+     *
+     * @param int $showId
+     *
+     * @return Comment
+     */
+    public function setShowId($showId)
+    {
+        $this->showId = $showId;
+
+        return $this;
+    }
+
+    /**
+     * Get showId
+     *
+     * @return int
+     */
+    public function getshowId()
+    {
+        return $this->showId;
+    }
+
 }
 

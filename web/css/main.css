@@ -330,3 +330,23 @@ form input{
   color:white;
   transition:all .2s ease-in-out;
 }
+/* LISTE EMISSIONS PAGE */
+.listeEmissions li{
+    list-style: none;
+    color:black;
+}
+
+/* LISTE COMMENTAIRE */
+.commentList{
+    background:white;
+    padding-left: 0 !important;
+}
+.commentList li{
+    color:black;
+    list-style: none;
+    border-bottom:1px solid#eee;
+    padding:10px;
+}
+.commentList li:last-child{
+    border-bottom: none;
+}
