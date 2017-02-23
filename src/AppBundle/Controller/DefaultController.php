@@ -52,4 +52,16 @@ class DefaultController extends Controller
             'topLiked' =>$topLiked,
         ]);
     }
+
+    /**
+     * @Route("/search", name="search")
+     */
+    public function searchAction(Request $request)
+    {
+        return $this->render('default/searchResults.html.twig', [
+
+        ]);
+    }
+
+
 }
