@@ -37,6 +37,8 @@ class TVShowController extends Controller
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
 
+        
+
         // FORM WTF
         $voteWTF = new Vote();
         $voteWTF->setShow($show);
