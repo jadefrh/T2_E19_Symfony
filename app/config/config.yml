@@ -92,3 +92,10 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+# Vich videos
+vich_uploader:
+    db_driver: orm # or mongodb or propel or phpcr
+    mappings:
+            TVShow:
+                uri_prefix:         /TVShow/
+                upload_destination: '%kernel.root_dir%/../web/TVShow/'

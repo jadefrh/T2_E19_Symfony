@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Comment;
 use AppBundle\Entity\TVShow;
 use AppBundle\Entity\Vote;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -9,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,6 +23,28 @@ use Symfony\Component\HttpFoundation\Response;
 class TVShowController extends Controller
 {
 
+
+    /**
+     * @Route("/show/")
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $shows = $em->getRepository('AppBundle:TVShow')->findAll();
+        return $this->render('AppBundle:TVShow:index.html.twig', array(
+            'shows' => $shows,
+        ));
+    }
+
+    /**
+     * @Route("/show/add")
+     */
+    public function addAction()
+    {
+        die('hi');
+    }
+
     /**
      * @Route("/show/{name}")
      */
@@ -29,11 +53,12 @@ class TVShowController extends Controller
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
 
+        
+
         // FORM WTF
         $voteWTF = new Vote();
         $voteWTF->setShow($show);
         $voteWTF->setAuthor($user);
-
 
         $repository = $this
             ->getDoctrine()
@@ -163,14 +188,37 @@ class TVShowController extends Controller
         ]);
         $favCount = count($allFavVotes);
 
+        // COMMENT
+        $comment = new Comment();
+        $comment->setShowId($show->getId());
+        $comment->setAuthorId($user->getId());
 
+        $formComment = $this->createFormBuilder($comment)
+            ->add('content', TextType::class)
+            ->add('save', SubmitType::class, array('label' => 'Commenter'))
+            ->getForm();
+
+        $formComment->handleRequest($request);
+
+        if ($formComment->isSubmitted() && $formComment->isValid()) {
+
+            $comment = $formComment->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comment);
+            $em->flush();
+
+        }
+
+        $comments = $em->getRepository('AppBundle:Comment')->findAll();
 
         return $this->render('AppBundle:TVShow:show.html.twig', array(
             'show' => $show,
             'formWTF' => $formWTF->createView(),
             'formLike' => $formLike->createView(),
+            'formComment' => $formComment->createView(),
             'countFav' => $favCount,
             'countWtf' => $wtfCount,
+            'comments' => $comments,
         ));
     }
 

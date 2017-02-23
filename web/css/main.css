@@ -314,9 +314,9 @@ form input{
   margin-bottom: 0;
   display: inline-block;
 }
-.singleShowPage video{
-  height: 300px;
+.singleShowPage iframe{
   background:black;
+    height:710px;
   margin-bottom: 10px;
 }
 .singleShowPage #form_save{
@@ -329,4 +329,24 @@ form input{
   background:#C83D31;
   color:white;
   transition:all .2s ease-in-out;
+}
+/* LISTE EMISSIONS PAGE */
+.listeEmissions li{
+    list-style: none;
+    color:black;
+}
+
+/* LISTE COMMENTAIRE */
+.commentList{
+    background:white;
+    padding-left: 0 !important;
+}
+.commentList li{
+    color:black;
+    list-style: none;
+    border-bottom:1px solid#eee;
+    padding:10px;
+}
+.commentList li:last-child{
+    border-bottom: none;
 }

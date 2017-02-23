@@ -3,5 +3,24 @@
 {% block title %}AppBundle:TVShow:index{% endblock %}
 
 {% block body %}
-<h1>Welcome to the TVShow:index page</h1>
+    <div class="container">
+        <h1>Liste des émissions</h1>
+         <div class="col-xs-12 topShows">
+            {% for show in shows %}
+            <div class="singleShow">
+                <div class="col-md-4 col-xs-12 videoSingleShow">
+                </div>
+                <div class="col-md-8 col-xs-12 contentSingleShow">
+                    <div class="col-xs-12 textSingleShow">
+                        <h4>{{ show.name }}</h4>
+                        <p>
+                            {{ show.description }}
+                        </p>
+                        <a href="{{ path('app_tvshow_show', {'name' : show.name })  }}">En savoir plus</a>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+                </div>
+                </div>
 {% endblock %}
