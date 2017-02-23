@@ -25,7 +25,7 @@ class TVShowController extends Controller
 
 
     /**
-     * @Route("/shows")
+     * @Route("/show/")
      */
     public function listAction()
     {
