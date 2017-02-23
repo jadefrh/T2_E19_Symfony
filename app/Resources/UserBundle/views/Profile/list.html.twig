@@ -1,7 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% for entity in entities %}
-        {{ entity.username }}
-    {% endfor %}
+    <h1>Dashboard</h1>
+    <div>
+        <h2>Liste des utilisateurs</h2>
+        <ul>
+            {% for entity in entities %}
+                <li>
+                    <div>
+                        <a href="{{ path('fos_user_profile_show_user', {'id': entity.id}) }}">{{ entity.username }}</a>
+                        <p>{{ entity.email }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h2>Liste des émissions</h2>
+            <ul>
+                {% for show in shows %}
+                    <li>
+                        <div>
+                            <a href="{{ path('app_tvshow_show', {'name': show.name}) }}">{{ show.name }}</a>
+                            {#<p>LIKE : {{ favCount }} </p>#}
+                            {#<p>WTF : {{ wtfCount }}</p>#}
+                        </div>
+
+
+
+                    </li>
+                {% endfor %}
+            </ul>
+    </div>
+
 {% endblock %}
