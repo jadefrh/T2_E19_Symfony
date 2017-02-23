@@ -42,40 +42,122 @@ class TVShowController extends Controller
         $voteWTF->setShow($show);
         $voteWTF->setAuthor($user);
 
-        $formWTF = $this->createFormBuilder($voteWTF)
-            ->add('type', HiddenType::class)
-            ->add('save', SubmitType::class, array('label' => 'WTF'))
-            ->getForm();
 
-        $formWTF->handleRequest($request);
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Vote')
+        ;
 
-        if ($formWTF->isSubmitted() && $formWTF->isValid()) {
-            $voteWTF = $formWTF->getData();
-            if ($voteWTF->getType() === 'wtf') {
-                $em->persist($voteWTF);
-                $em->flush();
+        //HANDLE THE WTF BUTTON
+
+        // search in the Vote table for a instance with type = fav and user = logged in user
+        $existingWtfValue = $repository->findBy(
+            array(
+                'author' => $user->getId(),
+                'show' => $show,
+                'type' => 'wtf',
+            )
+        );
+
+
+        // check if the array is empty, if the user has not WTF the show yet
+        if(empty($existingWtfValue))
+        {
+            $formWTF = $this->createFormBuilder($voteWTF)
+                ->add('type', HiddenType::class)
+                ->add('save', SubmitType::class, array('label' => 'UNWTF'))
+                ->getForm();
+
+            $formWTF->handleRequest($request);
+
+            if ($formWTF->isSubmitted() && $formWTF->isValid()) {
+                $voteWTF = $formWTF->getData();
+                if ($voteWTF->getType() === 'wtf') {
+                    $em->persist($voteWTF);
+                    $em->flush();
+                }
+            }
+        }
+        //if its not empty, the show has already been liked, we're going to put an UNWTF button
+        else if(!empty($existingWtfValue))
+        {
+            $formWTF = $this->createFormBuilder($voteWTF)
+                ->add('type', HiddenType::class)
+                ->add('save', SubmitType::class, array('label' => 'WTF'))
+                ->getForm();
+
+            $formWTF->handleRequest($request);
+
+            if ($formWTF->isSubmitted() && $formWTF->isValid()) {
+                $voteWTF = $formWTF->getData();
+                if ($voteWTF->getType() === 'wtf') {
+                    $toRemove = $existingWtfValue[0];
+                    $toRemoveId = $toRemove->getId();
+                    $delete = $em->getRepository('AppBundle:Vote')->find($toRemoveId);
+                    $em->remove($delete);
+                    $em->flush();
+                }
             }
         }
 
-        //FORM LIKE
+        // FORM LIKE
         $voteLike = new Vote();
         $voteLike->setShow($show);
         $voteLike->setAuthor($user);
 
-        $formLike = $this->createFormBuilder($voteLike)
-            ->add('type', HiddenType::class)
-            ->add('save', SubmitType::class, array('label' => 'FAV'))
-            ->getForm();
+        //HANDLE THE LIKE BUTTON
 
-        $formLike->handleRequest($request);
+        // search in the Vote table for a instance with type = fav and user = logged in user
+        $existingFavValue = $repository->findBy(
+            array(
+                'author' => $user->getId(),
+                'show' => $show,
+                'type' => 'fav',
+            )
+        );
 
-        if ($formLike->isSubmitted() && $formLike->isValid()) {
-            $voteLike = $formLike->getData();
-            if ($voteLike->getType() === 'fav') {
-                $em->persist($voteLike);
-                $em->flush();
+
+        // check if the array is empty, if the user has not WTF the show yet
+        if(empty($existingFavValue))
+        {
+            $formLike = $this->createFormBuilder($voteLike)
+                ->add('type', HiddenType::class)
+                ->add('save', SubmitType::class, array('label' => 'FAV'))
+                ->getForm();
+
+            $formLike->handleRequest($request);
+
+            if ($formLike->isSubmitted() && $formLike->isValid()) {
+                $voteLike = $formLike->getData();
+                if ($voteLike->getType() === 'fav') {
+                    $em->persist($voteLike);
+                    $em->flush();
+                }
             }
         }
+        //if its not empty, the show has already been liked, we're going to put an UNWTF button
+        else if(!empty($existingFavValue))
+        {
+            $formLike = $this->createFormBuilder($voteLike)
+                ->add('type', HiddenType::class)
+                ->add('save', SubmitType::class, array('label' => 'UNFAV'))
+                ->getForm();
+
+            $formLike->handleRequest($request);
+
+            if ($formLike->isSubmitted() && $formLike->isValid()) {
+                $voteLike = $formLike->getData();
+                if ($voteLike->getType() === 'fav') {
+                    $toRemove = $existingFavValue[0];
+                    $toRemoveId = $toRemove->getId();
+                    $delete = $em->getRepository('AppBundle:Vote')->find($toRemoveId);
+                    $em->remove($delete);
+                    $em->flush();
+                }
+            }
+        }
+
 
         $allWtfVotes = $this->getDoctrine()->getRepository('AppBundle:Vote')->findBy([
             'show' => $show,
@@ -88,6 +170,8 @@ class TVShowController extends Controller
             'type' => 'fav',
         ]);
         $favCount = count($allFavVotes);
+
+
 
         return $this->render('AppBundle:TVShow:show.html.twig', array(
             'show' => $show,
