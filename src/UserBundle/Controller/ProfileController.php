@@ -9,6 +9,7 @@
 namespace UserBundle\Controller;
 
 
+use AppBundle\Entity\User;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
@@ -33,16 +34,18 @@ class ProfileController extends Controller
     /**
      * Show the user.
      */
-    public function showAction()
+    public function showAction($id=null)
     {
-        die('cest bon ça marche enleve le die() a la ligne 38 dans src/userbundle/controller/profilecontroller!!!');
-        $user = $this->getUser();
-        if (!is_object($user) || !$user instanceof UserInterface) {
-            throw new AccessDeniedException('This user does not have access to this section.');
+        if( $id == null ) {
+            $id = $this->get('security.token_storage')->getToken()->getUser();
         }
 
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AppBundle:User')->find($id);
+
         return $this->render('@FOSUser/Profile/show.html.twig', array(
-            'user' => $user,
+            'entity' => $entity,
         ));
     }
 
