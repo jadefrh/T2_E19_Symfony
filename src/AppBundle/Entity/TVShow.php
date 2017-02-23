@@ -13,6 +13,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="t_v_show")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TVShowRepository")
  */
+
+// TVSHOW Infos VOTE
+
 class TVShow
 {
     /**
