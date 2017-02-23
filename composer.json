@@ -25,7 +25,8 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "codingfogey/fontawesome-bundle": "dev-master",
         "fortawesome/font-awesome": "v4.0.3",
-        "friendsofsymfony/rest-bundle": "^2.1"
+        "friendsofsymfony/rest-bundle": "^2.1",
+        "vich/uploader-bundle": "^1.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
