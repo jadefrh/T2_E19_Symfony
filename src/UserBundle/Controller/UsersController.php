@@ -15,10 +15,12 @@ class UsersController extends Controller
 {
     /**
      * Lists all CategoryShop entities.
-     *
+     * 
      */
     public function indexAction()
     {
+
+
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('AppBundle:User')->findAll();
@@ -26,6 +28,8 @@ class UsersController extends Controller
         return $this->render('@FOSUser/Profile/list.html.twig', array(
             'entities' => $entities,
         ));
+
+
 
 
 
