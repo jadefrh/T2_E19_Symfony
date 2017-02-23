@@ -38,12 +38,22 @@ class TVShowController extends Controller
     }
 
     /**
+     * @Route("/show/add")
+     */
+    public function addAction()
+    {
+        die('hi');
+    }
+
+    /**
      * @Route("/show/{name}")
      */
     public function showAction(Request $request, TVShow $show)
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
+
+        
 
         // FORM WTF
         $voteWTF = new Vote();

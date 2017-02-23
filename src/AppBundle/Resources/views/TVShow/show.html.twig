@@ -5,8 +5,12 @@
 {% block body %}
   <div class="container singleShowPage">
     <h1>{{ show.name }}</h1>
+      <h4>Chaine : {{ show.channel }}</h4>
+      <h4>Présentateur : {{ show.host }}</h4>
+      <h4>Thème : {{ show.theme }}</h4>
+      <h4>Durée : {{ show.time |date("H:i") }}min</h4>
     <p>{{ show.description }}</p>
-    <video class="col-xs-12 src=""></video>
+      <iframe class="col-xs-12" src="{{ show.videoUrl }}"></iframe>
     <p> Réagir à ce show : </p>
         {{ form_start(formWTF) }}
         {{ form_widget(formWTF.type, {value : 'wtf'}) }}

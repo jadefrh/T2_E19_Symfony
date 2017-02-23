@@ -314,9 +314,9 @@ form input{
   margin-bottom: 0;
   display: inline-block;
 }
-.singleShowPage video{
-  height: 300px;
+.singleShowPage iframe{
   background:black;
+    height:710px;
   margin-bottom: 10px;
 }
 .singleShowPage #form_save{

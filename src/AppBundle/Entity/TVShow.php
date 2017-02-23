@@ -4,12 +4,16 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * TVShow
  *
  * @ORM\Table(name="t_v_show")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TVShowRepository")
+ * @Vich\Uploadable
  */
 class TVShow
 {
@@ -32,6 +36,27 @@ class TVShow
     /**
      * @var string
      *
+     * @ORM\Column(name="host", type="string", length=255)
+     */
+    private $host;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="theme", type="string", length=255)
+     */
+    private $theme;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="time", type="time")
+     */
+    private $time;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="channel", type="string", length=255)
      */
     private $channel;
@@ -48,9 +73,50 @@ class TVShow
      */
     private $votes;
 
-    public function __construct()
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="thumbnail", type="text")
+     */
+    private $thumbnail;
+
+    /**
+     * @return string
+     */
+    public function getThumbnail()
     {
-        $this->votes = new ArrayCollection();
+        return $this->thumbnail;
+    }
+
+    /**
+     * @param string $thumbnail
+     */
+    public function setThumbnail($thumbnail)
+    {
+        $this->thumbnail = $thumbnail;
+    }
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="videoUrl", type="text")
+     */
+    private $videoUrl;
+
+    /**
+     * @return string
+     */
+    public function getVideoUrl()
+    {
+        return $this->videoUrl;
+    }
+
+    /**
+     * @param string $videoUrl
+     */
+    public function setVideoUrl($videoUrl)
+    {
+        $this->videoUrl = $videoUrl;
     }
 
     /**
@@ -85,6 +151,77 @@ class TVShow
     public function getName()
     {
         return $this->name;
+    }
+    /**
+     * Set host
+     *
+     * @param string $host
+     *
+     * @return TvShow
+     */
+    public function setHost($host)
+    {
+        $this->host = $host;
+
+        return $this;
+    }
+
+    /**
+     * Get host
+     *
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->host;
+    }
+
+    /**
+     * Set theme
+     *
+     * @param string $theme
+     *
+     * @return TvShow
+     */
+    public function setTheme($theme)
+    {
+        $this->theme = $theme;
+
+        return $this;
+    }
+
+    /**
+     * Get theme
+     *
+     * @return string
+     */
+    public function getTheme()
+    {
+        return $this->theme;
+    }
+
+    /**
+     * Set time
+     *
+     * @param \DateTime $time
+     *
+     * @return TvShow
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+
+        return $this;
+    }
+
+    /**
+     * Get time
+     *
+     * @return \DateTime
+     */
+    public function getTime()
+    {
+        return $this->time;
     }
 
     /**
