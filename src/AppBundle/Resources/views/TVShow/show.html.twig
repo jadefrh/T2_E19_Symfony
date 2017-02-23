@@ -27,7 +27,7 @@
           J'aime: {{ countFav }}
         </p>
         </div>
-        <div class="col-xs-12 noPaddingLeft">
+        <div class="col-xs-12  commentSection">
             {{ form_start(formComment) }}
             {{ form_widget(formComment) }}
             {{ form_end(formComment) }}
@@ -35,7 +35,7 @@
             Commentaires :
               <ul class="commentList">
               {% for comment in comments %}
-                <li>{{ comment.content }}</li>
+                <li><strong>Id utilisateur :</strong> {{ comment.authorId }} / {{ comment.content }}</li>
               {% endfor %}
               </ul>
           </p>

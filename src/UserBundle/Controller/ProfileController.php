@@ -59,7 +59,7 @@ class ProfileController extends Controller
         return $this->render('@FOSUser/Profile/show.html.twig', array(
             'entity' => $entity,
             'likedShows'=>$showLikedByUser,
-            'wtfShow' => $showWtfByUser,
+            'wtfShows' => $showWtfByUser,
         ));
     }
 

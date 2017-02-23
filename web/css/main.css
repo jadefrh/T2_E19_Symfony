@@ -15,8 +15,11 @@ form{
 h4{
   color:#333;
 }
+.white{
+  color:white;
+}
 a{
-  color:#337ab7;
+  color:#C83D31;
 }
 .backgroundProperty{
   background-size: cover !important;
@@ -313,6 +316,7 @@ form input{
 .singleShowPage form{
   margin-bottom: 0;
   display: inline-block;
+  padding:10px;
 }
 .singleShowPage iframe{
   background:black;
@@ -324,6 +328,7 @@ form input{
   border:1px solid #C83D31;
   color:#C83D31;
   border-radius:3px;
+  margin-top:20px;
 }
 .singleShowPage #form_save:hover{
   background:#C83D31;
@@ -337,6 +342,9 @@ form input{
 }
 
 /* LISTE COMMENTAIRE */
+.commentSection{
+  background:white;
+}
 .commentList{
     background:white;
     padding-left: 0 !important;
@@ -349,4 +357,7 @@ form input{
 }
 .commentList li:last-child{
     border-bottom: none;
+}
+input #form_content{
+  outline:none !important;
 }

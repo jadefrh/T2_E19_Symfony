@@ -44,24 +44,27 @@ class DefaultController extends Controller
           ->orderBy('vote_count', 'DESC');
         $reqLiked->setMaxResults(1);
         $topLiked = $reqLiked->getQuery()->getResult();
-        
+
+
+        //custom query to get the most commented post
+        $reqCommented = $em->createQueryBuilder()
+          ->select("COUNT ( comment.showId ) as comment_count, t_v_show.name, t_v_show.description ")
+          ->from(' AppBundle:TVShow', 't_v_show')
+          ->innerJoin(' AppBundle:Comment', 'comment', 'WITH', 't_v_show.id = comment.showId')
+          ->groupBy('t_v_show.id')
+          ->orderBy('comment_count', 'DESC');
+        $reqCommented->setMaxResults(1);
+        $topCommented = $reqCommented->getQuery()->getResult();
+
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'showsRecent' => $showsRecent,
             'topWtf'=> $topWtf,
             'topLiked' =>$topLiked,
+            'topCommented' => $topCommented,
         ]);
     }
 
-    /**
-     * @Route("/search", name="search")
-     */
-    public function searchAction(Request $request)
-    {
-        return $this->render('default/searchResults.html.twig', [
-
-        ]);
-    }
 
 
 }
