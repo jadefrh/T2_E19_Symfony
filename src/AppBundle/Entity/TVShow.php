@@ -82,6 +82,14 @@ class TVShow
     private $thumbnail;
 
     /**
+     * @param string $thumbnail
+     */
+    public function setThumbnail($thumbnail)
+    {
+        $this->thumbnail = $thumbnail;
+    }
+
+    /**
      * @return string
      */
     public function getThumbnail()
@@ -89,13 +97,7 @@ class TVShow
         return $this->thumbnail;
     }
 
-    /**
-     * @param string $thumbnail
-     */
-    public function setThumbnail($thumbnail)
-    {
-        $this->thumbnail = $thumbnail;
-    }
+
 
     /**
      * @var string

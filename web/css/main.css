@@ -4,7 +4,8 @@ body,html{
     margin:0;
     background:url('../img/background.png');
     background-size: cover;
-    background-position: top;
+    background-position: center;
+    background-repeat: repeat-y;
 }
 p{
   color:black;
@@ -16,7 +17,7 @@ h4{
   color:#333;
 }
 .white{
-  color:white;
+  color:white !important;
 }
 a{
   color:#C83D31;
@@ -41,7 +42,7 @@ a{
     padding-left: 15px !important;
 }
 .noPaddingLeft{
-    padding-left:0;
+    padding-left:0 !important;
 }
 h1{
   color:#333;
@@ -58,6 +59,9 @@ input{
 .btn-default:hover{
   background-color: #333;
   transition:all .2s ease-in-out;
+  color:white;
+}
+.btn-default a:hover{
   color:white;
 }
 /* NAV */
@@ -79,7 +83,7 @@ nav .chooseCat{
 /* HOME HEADER */
 .homeHeader{
     height:200px;
-    background:url('../img/pub/header.gif');
+    background:url('../img/pub/header.png');
 }
 .searchByCatTab{
   height:140px;
@@ -122,6 +126,12 @@ nav .chooseCat{
 .topShows{
     background: #eee;
     padding-bottom:20px;
+    margin-bottom:20px;
+}
+.showAllShow{
+  display: block;
+  width: 20%;
+  margin: 0 auto;
 }
 .singleShow{
     padding:15px;
@@ -138,7 +148,7 @@ nav .chooseCat{
 .dividerUnderTitle{
   display: block;
   height: 2px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   background-color: #C83D31;
 }
 .viewCatLink{
@@ -146,7 +156,6 @@ nav .chooseCat{
     color:#C83D31;
 }
 .videoSingleShow{
-    background: lightblue;
     height: 100%;
 }
 .contentSingleShow{
@@ -158,14 +167,14 @@ nav .chooseCat{
 }
 /* FOOTER */
 footer{
-    background:#666666;
-    height:200px;
+    background:#eee;
+    height:90px;
     clear:both;
     margin-top: 50px;
     padding-top: 30px;
 }
 footer a{
-  color:white;
+  color:#333;
 }
 .fa{
     color: #000;
@@ -244,7 +253,7 @@ footer a{
 /* IMAGES */
 
 .logo{
-    width: 10%;
+    width: 50%;
     height:auto;
 }
 
@@ -313,6 +322,10 @@ form input{
   margin-bottom: 20px;
 }
 /* SINGLE SHOW PAGE */
+.singleShowPage{
+  background: #eee;
+  padding-bottom: 20px;
+}
 .singleShowPage form{
   margin-bottom: 0;
   display: inline-block;
@@ -320,7 +333,7 @@ form input{
 }
 .singleShowPage iframe{
   background:black;
-    height:710px;
+  height:510px;
   margin-bottom: 10px;
 }
 .singleShowPage #form_save{
@@ -342,6 +355,10 @@ form input{
 }
 
 /* LISTE COMMENTAIRE */
+.belowVideo{
+  background: white;
+  padding-top: 10px;
+}
 .commentSection{
   background:white;
 }

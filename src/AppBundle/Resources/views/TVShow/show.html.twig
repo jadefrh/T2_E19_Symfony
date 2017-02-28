@@ -11,6 +11,7 @@
       <h4>Durée : {{ show.time |date("H:i") }}min</h4>
     <p>{{ show.description }}</p>
       <iframe class="col-xs-12" src="{{ show.videoUrl }}"></iframe>
+    <div class="col-xs-12 belowVideo">
     <p> Réagir à ce show : </p>
         {{ form_start(formWTF) }}
         {{ form_widget(formWTF.type, {value : 'wtf'}) }}
@@ -27,6 +28,7 @@
           J'aime: {{ countFav }}
         </p>
         </div>
+      </div>
         <div class="col-xs-12  commentSection">
             {{ form_start(formComment) }}
             {{ form_widget(formComment) }}

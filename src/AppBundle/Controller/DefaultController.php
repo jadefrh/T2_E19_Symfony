@@ -25,7 +25,7 @@ class DefaultController extends Controller
 
         //custom query to get the most wtf post
         $qb = $em->createQueryBuilder()
-          ->select("COUNT ( vote.show ) as vote_count, t_v_show.name, t_v_show.description ")
+          ->select("COUNT ( vote.show ) as vote_count, t_v_show.name, t_v_show.description, t_v_show.thumbnail ")
           ->from(' AppBundle:TVShow', 't_v_show')
           ->innerJoin(' AppBundle:Vote', 'vote', 'WITH', 't_v_show.id = vote.show')
           ->andWhere("vote.type = 'wtf' ")
@@ -36,7 +36,7 @@ class DefaultController extends Controller
 
         //custom query to get the most liked post
         $reqLiked = $em->createQueryBuilder()
-          ->select("COUNT ( vote.show ) as vote_count, t_v_show.name, t_v_show.description ")
+          ->select("COUNT ( vote.show ) as vote_count, t_v_show.name, t_v_show.description, t_v_show.thumbnail ")
           ->from(' AppBundle:TVShow', 't_v_show')
           ->innerJoin(' AppBundle:Vote', 'vote', 'WITH', 't_v_show.id = vote.show')
           ->andWhere("vote.type = 'fav' ")
@@ -48,7 +48,7 @@ class DefaultController extends Controller
 
         //custom query to get the most commented post
         $reqCommented = $em->createQueryBuilder()
-          ->select("COUNT ( comment.showId ) as comment_count, t_v_show.name, t_v_show.description ")
+          ->select("COUNT ( comment.showId ) as comment_count, t_v_show.name, t_v_show.description, t_v_show.thumbnail ")
           ->from(' AppBundle:TVShow', 't_v_show')
           ->innerJoin(' AppBundle:Comment', 'comment', 'WITH', 't_v_show.id = comment.showId')
           ->groupBy('t_v_show.id')

@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Dashboard</h1>
-    <div>
+    <div class="container SingleShowPage">
+    <div class="belowVideo">
+        <h1>Dashboard</h1>
         <h2>Liste des utilisateurs</h2>
         <ul>
             {% for entity in entities %}
@@ -16,7 +17,7 @@
         </ul>
     </div>
 
-    <div>
+    <div class="belowVideo">
         <h2>Liste des émissions</h2>
             <ul>
                 {% for show in shows %}
@@ -33,5 +34,5 @@
                 {% endfor %}
             </ul>
     </div>
-
+    </div>
 {% endblock %}

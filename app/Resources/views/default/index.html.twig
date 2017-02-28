@@ -14,9 +14,9 @@
                 <div class="col-xs-12 topShows">
                     {% for showRecent in showsRecent %}
                         <div class="singleShow">
-                            <h3 class="titleSingleShow col-xs-10">La plus récente</h3><span class="viewCatLink col-xs-2">Voir la catégorie</span>
+                            <h3 class="titleSingleShow col-xs-10">La plus récente</h3>
                             <div class="col-xs-12 dividerUnderTitle"></div>
-                            <div class="col-md-4 col-xs-12 videoSingleShow backgroundProperty">
+                            <div class="col-md-4 col-xs-12 videoSingleShow backgroundProperty" style="background:url('/uploads/thumbnail/10.jpg')">
                             </div>
                             <div class="col-md-8 col-xs-12 contentSingleShow">
                                 <div class="col-xs-12 textSingleShow">
@@ -33,9 +33,9 @@
                     <div class="clear"></div>
                     {% for top in topWtf %}
                         <div class="singleShow">
-                            <h3 class="titleSingleShow col-xs-10">La plus WTF</h3><span class="viewCatLink col-xs-2">Voir la catégorie</span>
+                            <h3 class="titleSingleShow col-xs-10">La plus WTF</h3>
                             <div class="col-xs-12 dividerUnderTitle"></div>
-                            <div class="col-md-4 col-xs-12 videoSingleShow  backgroundProperty">
+                            <div class="col-md-4 col-xs-12 videoSingleShow  backgroundProperty" style="background:url('{{ top.thumbnail }}')">
                             </div>
                             <div class="col-md-8 col-xs-12 contentSingleShow">
                                 <div class="col-xs-12 textSingleShow">
@@ -51,9 +51,9 @@
                     <div class="clear"></div>
                     {% for liked in topLiked %}
                         <div class="singleShow">
-                            <h3 class="titleSingleShow col-xs-10">La plus aimée</h3><span class="viewCatLink col-xs-2">Voir la catégorie</span>
+                            <h3 class="titleSingleShow col-xs-10">La plus aimée</h3>
                             <div class="col-xs-12 dividerUnderTitle"></div>
-                            <div class="col-md-4 col-xs-12 videoSingleShow">
+                            <div class="col-md-4 col-xs-12 videoSingleShow backgroundProperty" style="background:url({{ liked.thumbnail }})" >
                             </div>
                             <div class="col-md-8 col-xs-12 contentSingleShow">
                                 <div class="col-xs-12 textSingleShow">
@@ -69,9 +69,9 @@
                     <div class="clear"></div>
                     {% for commented in topCommented %}
                         <div class="singleShow">
-                            <h3 class="titleSingleShow col-xs-10">La plus commentée</h3><span class="viewCatLink col-xs-2">Voir la catégorie</span>
+                            <h3 class="titleSingleShow col-xs-10">La plus commentée</h3>
                             <div class="col-xs-12 dividerUnderTitle"></div>
-                            <div class="col-md-4 col-xs-12 videoSingleShow">
+                            <div class="col-md-4 col-xs-12 videoSingleShow backgroundProperty" style="background:url('{{ commented.thumbnail }}')"">
                             </div>
                             <div class="col-md-8 col-xs-12 contentSingleShow">
                                 <div class="col-xs-12 textSingleShow">
@@ -85,7 +85,9 @@
                         </div>
                     {% endfor %}
                     </div>
-                    <a class="col-xs-12 text-center" href="http://localhost:8000/show">Voir toutes les émissions</a>
+                    <button class="btn-default text-center littleMarginTop showAllShow">
+                      <a class="white" href="http://localhost:8000/show">Voir toutes les émissions</a>
+                    </button>
                 </div>
             </div>
         </div>

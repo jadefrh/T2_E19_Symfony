@@ -4,11 +4,11 @@
 
 {% block body %}
     <div class="container">
-        <h1>Liste des émissions</h1>
+        <h1 class="text-center white">Liste des émissions</h1>
          <div class="col-xs-12 topShows">
             {% for show in shows %}
             <div class="singleShow">
-                <div class="col-md-4 col-xs-12 videoSingleShow">
+                <div class="col-md-4 col-xs-12 videoSingleShow backgroundProperty" style="background:url('{{ show.thumbnail }}')">
                 </div>
                 <div class="col-md-8 col-xs-12 contentSingleShow">
                     <div class="col-xs-12 textSingleShow">

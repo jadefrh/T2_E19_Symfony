@@ -54,7 +54,7 @@ class TVShowController extends Controller
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
 
-        
+
 
         // FORM WTF
         $voteWTF = new Vote();
@@ -210,7 +210,7 @@ class TVShowController extends Controller
 
         }
 
-        $comments = $em->getRepository('AppBundle:Comment')->findAll();
+        $comments = $em->getRepository('AppBundle:Comment')->findByShowId($show->getId());
 
         return $this->render('AppBundle:TVShow:show.html.twig', array(
             'show' => $show,

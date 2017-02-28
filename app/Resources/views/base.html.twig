@@ -17,7 +17,7 @@
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
-                    <button class="btn-default"><a class="white" href="http://localhost:8000/">Acceuil</a></button>
+                    <a href="http://localhost:8000/"><img class="logo" src="{{ asset('img/logo.png')}}"</a>
                     <button class="btn-default"><a class="white" href="http://localhost:8000/show">Toutes les émissions</a></button>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="icon-bar"></span>
@@ -26,10 +26,9 @@
                     </button>
                 </div>
                     <ul class="nav navbar-nav navbar-right">
-
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             {% if is_granted("ROLE_ADMIN") %}
-                                <a href="{{ path('fos_user_profile_show_users') }}">Dashboard</a>
+                            <a href="{{ path('fos_user_profile_show_users') }}">Dashboard</a>
                             {% endif %}
                             <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a>
                             <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
