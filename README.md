@@ -1,9 +1,9 @@
-This was made for a Symfony school project.
+This was made for a Symfony school project. It was our first time using Symfony and we liked it.
 
 Members
 --------------
-* [Margaux Tellier][14] - *Designe*
-* [Lucie Zévaco][15] - *Designe*
+* [Margaux Tellier][14] - *Designer*
+* [Lucie Zévaco][15] - *Designer*
 * [Pierrick Inesta][16] - *Content Manager*
 * [Anne Maurice-Péroumal][17] - *Developer*
 * [Raphael Ait El Alim][18]- *Developer*
@@ -23,7 +23,6 @@ php bin/console doctrine:schema:update --dump-sql
 php bin/console doctrine:schema:update --force
 ``` 
 ###Bundles used
---------------
 
 *FOSRestBundle* - API Rest
 *FOSUserBunble* - User gestion
