@@ -1,93 +1,36 @@
-## Installer un répo qu'on a récupéré sur GitHub :
+This was made for a Symfony school project.
 
-* `git clone https://github.com/Bunkermaster/exosymfony.git`
-* `composer install`
-	- Port : 8889 (dépend de ce qu’on a mis dans MAMP)
-	- database password : root
+Members
+--------------
+* [Margaux Tellier][14] - *Designe*
+* [Lucie Zévaco][15] - *Designe*
+* [Pierrick Inesta][16] - *Content Manager*
+* [Anne Maurice-Péroumal][17] - *Developer*
+* [Raphael Ait El Alim][18]- *Developer*
+* [Jasmine Ferhaoui][19] - *Developer*
 
-`php bin/symfony_requirements` => Tester si Symfony est bien installé
-(Pas oublier d'allumer MAMP)
-
-* `sf doctrine:database:create`
-* `sf doctrine:schema:update --dump-sql`
-* `sf doctrine:schema:update —force`
-* `sf server:run`
-
-
-* `sf debug:container` => Liste tout les services
-* `sf debug:container | grep account` => Liste les services contenant « account » 
-* `sf debug:container app.service.accounting_service` => Toutes les infos sur ce service
-
-
-
-
-
-Symfony Standard Edition
-========================
-
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
-
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
-
-What's inside?
+How to install
 --------------
 
-The Symfony Standard Edition is configured with the following defaults:
+```
+git clone https://github.com/jadefrh/T2_E19_Symfony.git
+cd T2_E19_Symfony-master
 
-  * An AppBundle you can use to start coding;
+php bin/symfony-requirements
+composer install
+php bin/console doctrine:database:create
+php bin/console doctrine:schema:update --dump-sql
+php bin/console doctrine:schema:update --force
+``` 
+###Bundles used
+--------------
 
-  * Twig as the only configured template engine;
+*FOSRestBundle* - API Rest
+*FOSUserBunble* - User gestion
 
-  * Doctrine ORM/DBAL;
-
-  * Swiftmailer;
-
-  * Annotations enabled for everything.
-
-It comes pre-configured with the following bundles:
-
-  * **FrameworkBundle** - The core Symfony framework bundle
-
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
-
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
-
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/3.2/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.2/doctrine.html
-[8]:  https://symfony.com/doc/3.2/templating.html
-[9]:  https://symfony.com/doc/3.2/security.html
-[10]: https://symfony.com/doc/3.2/email.html
-[11]: https://symfony.com/doc/3.2/logging.html
-[12]: https://symfony.com/doc/3.2/assetic/asset_management.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
+[14]: https://github.com/margauxtell
+[15]: https://github.com/luciezevaco
+[16]: https://github.com/inespie
+[17]: https://github.com/annemp
+[18]: https://github.com/raphaelaitelalim
+[19]: https://github.com/jadefrh
